@@ -26,10 +26,10 @@ const Signup = () => {
       {/* Right Side */}
       <section className="w-full md:w-3/5 flex items-center justify-center p-8">
         <div className="w-full max-w-xl">
-          <h2 className="text-[2rem] font-semibold text-gray-900 text-center">
+          <h2 className="md:text-[2rem] text-[1.5rem] font-semibold text-gray-900 text-center">
             Sign up for an account
           </h2>
-          <p className="mb-6 text-[#667085] text-center">
+          <p className="mb-6 text-[.875rem] md:text-[1rem] text-[#667085] text-center font-normal leading-6">
             Get started today by entering just a few details
           </p>
           <form className="space-y-6">
@@ -110,6 +110,9 @@ const Signup = () => {
           </p>
         </div>
       </section>
+      <p className="text-[#667085] absolute right-8 text-sm bottom-4">
+        Copyright 2025
+      </p>
     </main>
   );
 };
