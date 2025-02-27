@@ -24,7 +24,7 @@ const Signup = () => {
       {/* Left hand side */}
       <AuthSidebar />
 
-      {/* Right Side */}
+      {/* Right hand Side */}
       <section className="w-full md:w-3/5 flex items-center justify-center p-8">
         <div className="w-full max-w-xl">
           <div className="md:hidden flex justify-center mb-6">
@@ -51,7 +51,7 @@ const Signup = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            {/* Phone Number Field */}
+            {/* Phone Number component */}
             <PhoneNumberInput />
 
             <FloatingLabelInput

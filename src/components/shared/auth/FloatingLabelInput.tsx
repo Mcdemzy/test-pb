@@ -6,7 +6,7 @@ interface FloatingLabelInputProps {
   placeholder: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  isPhoneNumberField?: boolean; // New prop to handle phone number field layout
+  isPhoneNumberField?: boolean; //  prop to handle phone number
 }
 
 const FloatingLabelInput = ({
@@ -14,7 +14,7 @@ const FloatingLabelInput = ({
   placeholder,
   value,
   onChange,
-  isPhoneNumberField = false, // Default to false
+  isPhoneNumberField = false,
 }: FloatingLabelInputProps) => {
   const [focused, setFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -23,7 +23,6 @@ const FloatingLabelInput = ({
 
   return (
     <div className="relative w-full">
-      {/* Label for non-phone number fields */}
       {!isPhoneNumberField && (focused || value) && (
         <label className="text-sm text-gray-600 mb-1 block">
           {placeholder}
@@ -41,13 +40,12 @@ const FloatingLabelInput = ({
         className="w-full border px-4 py-2 rounded-[8px] focus:outline-none focus:ring-2 focus:ring-[#06543C] text-gray-900 pr-10"
       />
 
-      {/* Password toggle icon */}
       {isPasswordField && (
         <button
           type="button"
           onClick={() => setShowPassword(!showPassword)}
           className={`absolute right-3 text-gray-500 ${
-            focused || value ? "top-9" : "top-3" // Adjust icon position based on label visibility
+            focused || value ? "top-9" : "top-3"
           }`}
         >
           {showPassword ? <RxEyeClosed size={18} /> : <RxEyeClosed size={18} />}
