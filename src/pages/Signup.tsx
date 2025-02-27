@@ -1,11 +1,12 @@
 import { useState } from "react";
 import FloatingLabelInput from "../components/shared/auth/FloatingLabelInput";
 import AuthSidebar from "../components/shared/auth/AuthSidebar";
+import PhoneNumberInput from "../components/shared/auth/PhoneNumberInput"; // Import the new component
 
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -45,19 +46,10 @@ const Signup = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <div className="flex items-center space-x-2">
-              <select className="rounded-[8px] border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#06543C]">
-                <option>US</option>
-                <option>UK</option>
-                <option>NG</option>
-              </select>
-              <FloatingLabelInput
-                type="tel"
-                placeholder="Phone Number"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-              />
-            </div>
+
+            {/* Phone Number Field */}
+            <PhoneNumberInput />
+
             <FloatingLabelInput
               type="password"
               placeholder="Enter Password"
@@ -102,7 +94,7 @@ const Signup = () => {
               Create Account
             </button>
           </form>
-          <p className="mt-6 text-sm text-center text-gray-600">
+          <p className="mt-6 text-sm text-center text-[#344054]">
             Already have an account?{" "}
             <a href="#" className="text-[#06543C] underline">
               Login
@@ -110,7 +102,7 @@ const Signup = () => {
           </p>
         </div>
       </section>
-      <p className="text-[#667085] absolute right-8 text-sm bottom-4">
+      <p className="text-[#667085] absolute right-8 text-sm bottom-4 hidden md:block">
         Copyright 2025
       </p>
     </main>
