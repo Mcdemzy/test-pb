@@ -4,10 +4,16 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 interface FloatingLabelInputProps {
   type: string;
   placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const FloatingLabelInput = ({ type, placeholder }: FloatingLabelInputProps) => {
-  const [value, setValue] = useState("");
+const FloatingLabelInput = ({
+  type,
+  placeholder,
+  value,
+  onChange,
+}: FloatingLabelInputProps) => {
   const [focused, setFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -27,7 +33,7 @@ const FloatingLabelInput = ({ type, placeholder }: FloatingLabelInputProps) => {
       <input
         type={isPasswordField && !showPassword ? "password" : "text"}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={onChange}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         className="w-full border px-4 py-2 rounded-[8px] focus:outline-none focus:ring-2 focus:ring-[#06543C] text-gray-900 pr-10"

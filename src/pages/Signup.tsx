@@ -1,7 +1,23 @@
+import { useState } from "react";
 import FloatingLabelInput from "../components/shared/auth/FloatingLabelInput";
 import AuthSidebar from "../components/shared/auth/AuthSidebar";
 
 const Signup = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
+
+  const isFormValid =
+    username.trim() !== "" &&
+    email.trim() !== "" &&
+    phoneNumber.trim() !== "" &&
+    password.trim() !== "" &&
+    confirmPassword.trim() !== "" &&
+    termsAccepted;
+
   return (
     <main className="h-screen flex flex-col md:flex-row">
       {/* Left hand side */}
@@ -17,23 +33,52 @@ const Signup = () => {
             Get started today by entering just a few details
           </p>
           <form className="space-y-6">
-            <FloatingLabelInput type="text" placeholder="Username" />
-            <FloatingLabelInput type="email" placeholder="Enter Email" />
+            <FloatingLabelInput
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <FloatingLabelInput
+              type="email"
+              placeholder="Enter Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <div className="flex items-center space-x-2">
               <select className="rounded-[8px] border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#06543C]">
                 <option>US</option>
                 <option>UK</option>
                 <option>NG</option>
               </select>
-              <FloatingLabelInput type="tel" placeholder="Phone Number" />
+              <FloatingLabelInput
+                type="tel"
+                placeholder="Phone Number"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
             </div>
-            <FloatingLabelInput type="password" placeholder="Enter Password" />
+            <FloatingLabelInput
+              type="password"
+              placeholder="Enter Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <FloatingLabelInput
               type="password"
               placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
             <div className="flex items-center text-sm">
-              <input type="checkbox" id="terms" className="mr-2" />
+              <input
+                type="checkbox"
+                id="terms"
+                className="mr-2"
+                checked={termsAccepted}
+                onChange={(e) => setTermsAccepted(e.target.checked)}
+                required
+              />
               <label htmlFor="terms">
                 I agree to the
                 <a href="#" className="text-[#06543C] underline">
@@ -47,7 +92,13 @@ const Signup = () => {
                 </a>
               </label>
             </div>
-            <button className="w-full rounded bg-[#98A2B3] px-4 py-2 text-white cursor-pointer">
+            <button
+              type="submit"
+              disabled={!isFormValid}
+              className={`w-full rounded px-4 py-2 text-white cursor-pointer ${
+                isFormValid ? "bg-[#06543C]" : "bg-[#98A2B3] cursor-not-allowed"
+              }`}
+            >
               Create Account
             </button>
           </form>
