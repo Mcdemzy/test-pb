@@ -6,12 +6,10 @@ const PhoneNumberInput = () => {
 
   return (
     <div className="relative w-full">
-      {/* Label */}
       {(focused || phoneNumber) && (
         <label className="text-sm text-gray-600 mb-1 block">Phone Number</label>
       )}
 
-      {/* Combined Select and Input Field */}
       <div className="flex items-center border rounded-[8px] focus-within:ring-2 focus-within:ring-[#06543C]">
         {/* Select Dropdown */}
         <select className="rounded-l-[8px] px-3 py-2 focus:outline-none bg-transparent">

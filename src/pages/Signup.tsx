@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FloatingLabelInput from "../components/shared/auth/FloatingLabelInput";
 import AuthSidebar from "../components/shared/auth/AuthSidebar";
-import PhoneNumberInput from "../components/shared/auth/PhoneNumberInput"; // Import the new component
+import PhoneNumberInput from "../components/shared/auth/PhoneNumberInput";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -27,6 +27,10 @@ const Signup = () => {
       {/* Right Side */}
       <section className="w-full md:w-3/5 flex items-center justify-center p-8">
         <div className="w-full max-w-xl">
+          <div className="md:hidden flex justify-center mb-6">
+            <img src="images/logo.svg" alt="Betta Logo" className="h-10" />
+          </div>
+
           <h2 className="md:text-[2rem] text-[1.5rem] font-semibold text-gray-900 text-center">
             Sign up for an account
           </h2>
